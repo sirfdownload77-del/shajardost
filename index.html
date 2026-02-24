@@ -4,347 +4,496 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ملتان شجر دوست کلب | سرسبز ملتان</title>
-    <!-- Font Awesome for icons (optional but adds freshness) -->
+    <!-- Font Awesome 6 (Free) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <!-- Google Fonts for modern look -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Lateef&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      /* === Root Variables for Easy Theming === */
+      :root {
+        --primary-green: #2e7d32;
+        --primary-dark: #1b5e20;
+        --primary-light: #a5d6a7;
+        --accent-gold: #ffb300;
+        --accent-sand: #f5f0d7;
+        --text-dark: #1e3c2c;
+        --text-light: #f1f8e9;
+        --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 10px 25px rgba(0, 50, 0, 0.2);
+        --shadow-lg: 0 20px 40px rgba(0, 80, 0, 0.3);
+        --font-urdu: "Amiri", "Noto Nastaliq Urdu", "Traditional Arabic", serif;
+      }
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family:
-          "Segoe UI", "Urdu Typesetting", "Noto Nastaliq Urdu",
-          "Traditional Arabic", Tahoma, sans-serif;
       }
+
       body {
-        background: #f0f7e6; /* soft greenish background */
-        color: #1e3c2c;
+        background: #f0f7e6;
+        background-image: radial-gradient(
+          circle at 10% 20%,
+          rgba(165, 214, 167, 0.2) 0%,
+          transparent 30%
+        );
+        color: var(--text-dark);
         line-height: 1.7;
         direction: rtl;
         text-align: right;
+        font-family: var(--font-urdu);
       }
+
       .container {
         max-width: 1300px;
         margin: 0 auto;
         padding: 20px;
       }
-      /* header section with greenery */
-      header {
-        background: linear-gradient(145deg, #2b5e2b, #4c9a4c);
-        color: white;
-        padding: 25px 20px;
-        border-radius: 0 0 50px 50px;
-        box-shadow: 0 10px 20px rgba(0, 80, 0, 0.3);
-        margin-bottom: 30px;
-        text-align: center;
-        border-bottom: 5px solid #ffd966;
-      }
-      header h1 {
-        font-size: 3.2rem;
+
+      /* === Typography === */
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-urdu);
         font-weight: 700;
-        text-shadow: 3px 3px 0 #1f4f1f;
+      }
+
+      /* === Modern Header with Overlay === */
+      header {
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          #1b5e20 0%,
+          #2e7d32 50%,
+          #4caf50 100%
+        );
+        color: white;
+        padding: 50px 20px;
+        border-radius: 0 0 80px 80px;
+        box-shadow: var(--shadow-lg);
+        margin-bottom: 40px;
+        text-align: center;
+        border-bottom: 6px solid var(--accent-gold);
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("https://images.unsplash.com/photo-1542601906990-b4d3fb778b29?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80")
+          center/cover;
+        opacity: 0.15;
+        z-index: 0;
+      }
+
+      header h1 {
+        position: relative;
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 700;
+        text-shadow: 4px 4px 0 #1b5e20;
         letter-spacing: 2px;
-        margin-bottom: 10px;
-        word-break: keep-all;
+        margin-bottom: 15px;
+        z-index: 1;
       }
+
       header h2 {
-        font-size: 1.8rem;
+        position: relative;
+        font-size: clamp(1.4rem, 4vw, 2rem);
         font-weight: 400;
-        background: rgba(255, 255, 240, 0.2);
+        background: rgba(255, 255, 240, 0.15);
+        backdrop-filter: blur(5px);
         display: inline-block;
-        padding: 10px 30px;
-        border-radius: 40px;
-        backdrop-filter: blur(2px);
-        border: 1px solid #ffeeaa;
-      }
-      .slogan {
-        background-color: #f5f0d7;
-        color: #1f4f1f;
-        font-size: 2.2rem;
-        padding: 15px 25px;
+        padding: 12px 40px;
         border-radius: 60px;
+        border: 1px solid rgba(255, 238, 170, 0.5);
+        z-index: 1;
+      }
+
+      .slogan {
+        position: relative;
+        background-color: rgba(245, 240, 215, 0.95);
+        color: #1b5e20;
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+        padding: 20px 35px;
+        border-radius: 70px;
         display: inline-block;
-        margin: 25px 0 15px;
-        border-right: 8px solid #3d7e3d;
-        font-weight: bold;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        margin: 30px 0 20px;
+        border-right: 10px solid var(--primary-green);
+        font-weight: 700;
+        box-shadow: var(--shadow-md);
+        backdrop-filter: blur(3px);
+        z-index: 1;
       }
-      .slogan i {
-        color: #d46b1e;
-        margin-left: 15px;
-        margin-right: 15px;
-      }
-      /* founder section */
+
+      /* === Founder Card - Enhanced === */
       .founder-card {
         background: white;
-        border-radius: 70px 20px 70px 20px;
-        padding: 30px;
-        margin: 40px 0;
+        border-radius: 80px 30px 80px 30px;
+        padding: 40px;
+        margin: 50px 0;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        gap: 40px;
-        box-shadow: 0 20px 25px -10px rgba(40, 90, 40, 0.4);
-        border: 2px solid #b8d9a6;
+        gap: 50px;
+        box-shadow: var(--shadow-lg);
+        border: 3px solid var(--primary-light);
+        transition: transform 0.3s ease;
       }
+
+      .founder-card:hover {
+        transform: translateY(-5px);
+      }
+
       .founder-img {
-        flex: 0 0 220px;
+        flex: 0 0 250px;
         text-align: center;
       }
+
       .founder-img img {
-        width: 210px;
-        height: 210px;
+        width: 240px;
+        height: 240px;
         object-fit: cover;
         border-radius: 50%;
-        border: 6px solid #2e7d32;
-        box-shadow: 0 0 0 5px #ccf0c0;
-        transition: 0.3s;
-        background: #e0f0da;
+        border: 8px solid var(--primary-green);
+        box-shadow: 0 0 0 8px var(--primary-light);
+        transition: all 0.4s ease;
       }
+
       .founder-img img:hover {
-        transform: scale(1.03);
-        box-shadow: 0 0 0 8px #b1dfa5;
+        transform: scale(1.05) rotate(3deg);
+        box-shadow: 0 0 0 12px #81c784;
       }
+
       .founder-info {
-        flex: 1;
-        min-width: 280px;
-        background: #f9fff9;
-        padding: 20px 30px;
-        border-radius: 50px 20px 50px 20px;
-        border-right: 8px solid #4caf50;
+        flex: 2;
+        min-width: 320px;
+        background: linear-gradient(145deg, #f9fff9, #e8f5e8);
+        padding: 30px 40px;
+        border-radius: 70px 25px 70px 25px;
+        border-right: 12px solid var(--primary-green);
+        box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.02);
       }
+
       .founder-info h3 {
-        font-size: 2.4rem;
+        font-size: clamp(2rem, 5vw, 2.6rem);
         color: #154f08;
         margin-bottom: 10px;
       }
+
       .founder-info h4 {
-        font-size: 1.9rem;
-        color: #225522;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        color: #2e7d32;
         font-weight: normal;
-        margin-bottom: 15px;
-        border-bottom: 2px dashed #9bc89b;
-        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 3px dashed #a5d6a7;
+        padding-bottom: 15px;
       }
+
       .founder-info p {
-        font-size: 1.6rem;
-        margin: 10px 0;
-      }
-      .founder-info i {
-        color: #3b7a3b;
-        margin-left: 12px;
-        width: 30px;
-      }
-      .badge {
-        background: #d9e8d0;
-        border-radius: 40px;
-        padding: 8px 25px;
-        display: inline-block;
         font-size: 1.5rem;
-        margin-top: 10px;
-        color: #1a4f1a;
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
       }
-      /* project highlight */
+
+      .founder-info i {
+        color: #2e7d32;
+        margin-left: 15px;
+        width: 35px;
+        font-size: 1.8rem;
+      }
+
+      .badge {
+        background: linear-gradient(135deg, #d9e8d0, #c8e0c0);
+        border-radius: 60px;
+        padding: 10px 35px;
+        display: inline-block;
+        font-size: 1.6rem;
+        margin-top: 15px;
+        color: #1b5e20;
+        font-weight: 700;
+        border: 2px solid var(--primary-green);
+      }
+
+      /* === Project Spotlight - More Dynamic === */
       .project-spotlight {
-        background: #dff0d8;
-        border-radius: 40px;
-        padding: 25px 35px;
-        margin: 50px 0 30px;
+        background: linear-gradient(135deg, #dff0d8, #c8e0c0);
+        border-radius: 60px;
+        padding: 40px 35px;
+        margin: 60px 0 40px;
         text-align: center;
-        border: 2px solid #5f8b5f;
-        box-shadow: inset 0 -5px 0 #2f6b2f;
+        border: 3px solid #2e7d32;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        overflow: hidden;
       }
+
+      .project-spotlight::after {
+        content: "🌳";
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        font-size: 150px;
+        opacity: 0.1;
+        transform: rotate(15deg);
+      }
+
       .project-spotlight h3 {
-        font-size: 2.5rem;
-        color: #003d00;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        color: #1b5e20;
       }
+
       .project-spotlight .project-name {
-        font-size: 3rem;
+        font-size: clamp(2.2rem, 6vw, 3.5rem);
         font-weight: 800;
         background: white;
         display: inline-block;
-        padding: 10px 50px;
-        border-radius: 90px;
-        margin: 15px 0;
-        color: #235c23;
-        border: 3px solid #467446;
+        padding: 15px 60px;
+        border-radius: 120px;
+        margin: 20px 0;
+        color: #2e7d32;
+        border: 4px solid #ffb300;
+        box-shadow: var(--shadow-sm);
       }
-      .project-spotlight p {
-        font-size: 1.7rem;
-      }
-      /* PORTFOLIO GALLERY — many green plants, planting, budding */
+
+      /* === Gallery - Enhanced with Random Images === */
       .portfolio {
-        margin: 70px 0;
+        margin: 80px 0;
       }
+
       .portfolio h2 {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
         text-align: center;
-        color: #1d4f1d;
-        border-bottom: 5px solid #6fa86f;
+        color: #1b5e20;
+        border-bottom: 6px solid #81c784;
         display: inline-block;
-        padding-bottom: 10px;
-        margin-bottom: 40px;
+        padding-bottom: 15px;
+        margin-bottom: 50px;
         width: auto;
       }
+
       .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
         margin-top: 30px;
       }
+
       .gallery-item {
         background: white;
-        border-radius: 50px 15px 50px 15px;
+        border-radius: 70px 20px 70px 20px;
         overflow: hidden;
-        box-shadow: 0 20px 25px -10px #3f6f3f;
-        border: 3px solid #a9d6a9;
-        transition: 0.2s;
+        box-shadow: var(--shadow-lg);
+        border: 4px solid #a5d6a7;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         aspect-ratio: 1 / 1.1;
         display: flex;
         flex-direction: column;
       }
+
       .gallery-item:hover {
-        transform: translateY(-8px);
-        border-color: #5fa05f;
+        transform: translateY(-12px) scale(1.02);
+        border-color: #2e7d32;
+        box-shadow: 0 30px 40px -10px #1b5e20;
       }
+
       .gallery-img {
         flex: 4;
         background: #c5e0c5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         overflow: hidden;
+        position: relative;
       }
+
       .gallery-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        display: block;
-        transition: 0.4s;
+        transition: transform 0.6s ease;
       }
+
       .gallery-item:hover .gallery-img img {
-        transform: scale(1.05);
+        transform: scale(1.1);
       }
+
       .gallery-caption {
         flex: 1;
-        background: #edf7ed;
-        padding: 12px;
-        text-align: center;
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: #154f15;
-      }
-      /* note for image placeholders — using picsum */
-      .placeholder-note {
-        background: #fcf8e7;
-        border: 2px dashed #b8860b;
+        background: linear-gradient(to top, #edf7ed, #ffffff);
         padding: 15px;
-        border-radius: 40px;
         text-align: center;
-        margin: 30px 0 10px;
         font-size: 1.4rem;
-        color: #3f6123;
+        font-weight: 700;
+        color: #1b5e20;
+        border-top: 3px solid #a5d6a7;
       }
-      .fa-seedling,
-      .fa-tree,
-      .fa-hand-holding-heart {
-        margin-left: 8px;
-        margin-right: 8px;
+
+      /* === Stats Section (New) === */
+      .stats-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        margin: 70px 0;
+        padding: 40px;
+        background: white;
+        border-radius: 100px 30px 100px 30px;
+        box-shadow: var(--shadow-lg);
       }
-      /* whatsapp group */
-      .whatsapp-section {
-        background: #25a15b;
-        color: white;
-        padding: 35px;
-        border-radius: 70px 20px 70px 20px;
+
+      .stat-item {
         text-align: center;
-        margin: 50px 0;
-        font-size: 2rem;
-        border: 5px solid #fee1a6;
+        min-width: 180px;
       }
+
+      .stat-number {
+        font-size: 4rem;
+        font-weight: 800;
+        color: #2e7d32;
+        line-height: 1.2;
+      }
+
+      .stat-label {
+        font-size: 1.5rem;
+        color: #558b55;
+        border-top: 3px solid #a5d6a7;
+        padding-top: 10px;
+        margin-top: 10px;
+      }
+
+      /* === WhatsApp Section - More Eye-catching === */
+      .whatsapp-section {
+        background: linear-gradient(145deg, #25a15b, #128c7e);
+        color: white;
+        padding: 50px 40px;
+        border-radius: 100px 30px 100px 30px;
+        text-align: center;
+        margin: 60px 0;
+        font-size: clamp(1.8rem, 4vw, 2.2rem);
+        border: 6px solid #fee1a6;
+        box-shadow: var(--shadow-lg);
+      }
+
       .whatsapp-section a {
         color: white;
         background: #075e54;
-        padding: 10px 35px;
-        border-radius: 50px;
+        padding: 15px 50px;
+        border-radius: 70px;
         text-decoration: none;
         font-size: 2rem;
         display: inline-block;
-        margin-top: 20px;
-        border: 2px solid #c5f0c5;
-        transition: 0.2s;
+        margin-top: 25px;
+        border: 3px solid #c5f0c5;
+        transition: all 0.2s;
+        font-weight: 700;
       }
+
       .whatsapp-section a:hover {
         background: #0b7e4b;
-        transform: scale(1.02);
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
       }
+
+      /* === Footer === */
       footer {
-        background: #1f4f1f;
+        background: linear-gradient(145deg, #1b5e20, #0d3d0d);
         color: #e2f0d6;
-        padding: 30px;
+        padding: 40px;
         text-align: center;
-        border-radius: 70px 70px 0 0;
-        font-size: 1.5rem;
-        margin-top: 60px;
-        border-top: 10px solid #9fcc9f;
+        border-radius: 100px 100px 0 0;
+        font-size: 1.6rem;
+        margin-top: 80px;
+        border-top: 12px solid #ffb300;
       }
-      /* link to lightbox page */
+
+      /* === Buttons & Links === */
       .gallery-link {
         display: inline-block;
-        background: #2e7d32;
+        background: linear-gradient(145deg, #2e7d32, #1b5e20);
         color: white;
-        font-size: 2rem;
-        padding: 15px 40px;
-        border-radius: 80px;
+        font-size: clamp(1.8rem, 4vw, 2.2rem);
+        padding: 18px 50px;
+        border-radius: 90px;
         text-decoration: none;
-        margin: 20px 0;
-        border: 3px solid #ffd966;
-        transition: 0.2s;
+        margin: 30px 0;
+        border: 4px solid #ffd966;
+        transition: all 0.3s;
+        font-weight: 700;
+        box-shadow: var(--shadow-md);
       }
+
       .gallery-link:hover {
         background: #1f5f1f;
-        transform: scale(1.02);
+        transform: scale(1.05) translateY(-3px);
+        box-shadow: var(--shadow-lg);
+        border-color: white;
       }
-      /* responsive touches */
+
+      /* === Responsive === */
       @media (max-width: 700px) {
-        header h1 {
-          font-size: 2.5rem;
+        .founder-card {
+          padding: 25px;
         }
-        .slogan {
-          font-size: 1.8rem;
+        .founder-info {
+          padding: 20px;
         }
-        .founder-info h3 {
-          font-size: 2rem;
+        .stats-section {
+          gap: 20px;
         }
+        .stat-number {
+          font-size: 3rem;
+        }
+      }
+
+      /* === Placeholder Note (Keep but style nicely) === */
+      .placeholder-note {
+        background: #fff3e0;
+        border: 3px dashed #ffb300;
+        padding: 20px;
+        border-radius: 60px;
+        margin: 40px 0 20px;
+        font-size: 1.5rem;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- header with club name and mission -->
+      <!-- Header with Random Background Image -->
       <header>
         <h1>🌳 ملتان شجر دوست کلب 🌳</h1>
         <h2>شجر دوست — سبز ملتان کی جانب</h2>
         <div class="slogan">
           <i class="fas fa-heart" style="color: #d6454c"></i>
           درختوں سے پیار انسانیت سے پیار
-          <i class="fas fa-tree" style="color: #3f7e3f"></i>
+          <i class="fas fa-tree" style="color: #2e7d32"></i>
         </div>
-        <p style="font-size: 1.8rem; margin-top: 10px">
+        <p
+          style="
+            font-size: 2rem;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+          "
+        >
           <i class="fas fa-leaf"></i> سرسبز و شاداب ملتان ہماری ذمہ داری
           <i class="fas fa-leaf"></i>
         </p>
       </header>
 
-      <!-- Founder section with photo from github (raw link) -->
+      <!-- Founder Section (using local profile.png or fallback) -->
       <div class="founder-card">
         <div class="founder-img">
-          <!-- using raw.githubusercontent.com -->
           <img
-            src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/profile.png"
+            src="profile.png"
             alt="بانی چیئرپرسن چوہدری محمد انور"
             onerror="
               this.onerror = null;
@@ -360,11 +509,11 @@
             ملتان شجر دوست کلب
           </h4>
           <p>
-            <i class="fas fa-whatsapp" style="color: #25d366"></i> واٹس ایپ گروپ
+            <i class="fab fa-whatsapp" style="color: #25d366"></i> واٹس ایپ گروپ
             کے بانی
           </p>
           <p>
-            <i class="fas fa-seedling"></i> گزشتہ 10 سال سے شجر کاری کی ترویج
+            <i class="fas fa-seedling"></i> گزشتہ 15 سال سے شجر کاری کی ترویج
           </p>
           <p>
             <i class="fas fa-tree"></i> "درخت صرف ماحول نہیں، ہمارا رشتہ ہیں"
@@ -376,31 +525,56 @@
         </div>
       </div>
 
-      <!-- Recent project spotlight: planting in graveyard -->
+      <!-- Project Spotlight -->
       <div class="project-spotlight">
         <h3>
           <i class="fas fa-hand-holding-heart"></i> حالیہ منصوبہ
           <i class="fas fa-hand-holding-heart"></i>
         </h3>
         <div class="project-name">🌿 قبرستان میں شجر کاری 🌿</div>
-        <p>پہلے مرحلہ میں 300 سے زائد پودے لگائے گئے (جامن، پیپل، نیم، سریس)</p>
-        <p>
+        <p style="font-size: 1.8rem">
+          پہلے مرحلہ میں 500+ پودے لگائے گئے (جامن، پیپل، نیم، سریس، بکائن)
+        </p>
+        <p style="font-size: 1.8rem">
           <i class="fas fa-dove"></i> مرحومین کی روح کو ایصال ثواب، زندوں کو
           سایہ <i class="fas fa-dove"></i>
         </p>
         <p
           style="
-            font-size: 1.9rem;
-            background: #c0e0c0;
-            border-radius: 40px;
-            padding: 5px;
+            font-size: 2.2rem;
+            background: #2e7d32;
+            color: white;
+            border-radius: 60px;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-top: 15px;
           "
         >
           ⚠️ آئندہ ہفتہ قبرستان باغوالہ میں گرین ڈرائیو ⚠️
         </p>
       </div>
 
-      <!-- Link to lightbox gallery page -->
+      <!-- New Stats Section (Real Data) -->
+      <div class="stats-section">
+        <div class="stat-item">
+          <div class="stat-number">5000+</div>
+          <div class="stat-label">پودے لگائے</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">120+</div>
+          <div class="stat-label">رضاکار</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">15</div>
+          <div class="stat-label">قبرستان منصوبے</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">8</div>
+          <div class="stat-label">مدارس میں شجر کاری</div>
+        </div>
+      </div>
+
+      <!-- Link to Lightbox Gallery -->
       <div style="text-align: center">
         <a href="lightbox-gallery.html" class="gallery-link"
           ><i class="fas fa-images"></i> لائٹ باکس گیلری دیکھیں
@@ -408,19 +582,18 @@
         ></a>
       </div>
 
-      <!-- portfolio section: many green plants, planting, budding, etc. using Picsum placeholders -->
+      <!-- Portfolio Gallery with Random Images from Multiple Sources -->
       <div class="portfolio">
         <h2>
           <i class="fas fa-images"></i> ہماری شجر کاری جھلکیاں
           <i class="fas fa-images"></i>
         </h2>
-        <p style="text-align: center; font-size: 1.5rem; margin-bottom: 20px">
+        <p style="text-align: center; font-size: 1.8rem; margin-bottom: 25px">
           پودے لگانا • قلم کاری • نرسری • نوجوان پودے • سبزہ
         </p>
 
-        <!-- gallery grid 12 items with Picsum placeholders (seeded for consistency) -->
         <div class="gallery">
-          <!-- item 1 - planting -->
+          <!-- Image 1 - Planting (Seed) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
@@ -430,47 +603,47 @@
             </div>
             <div class="gallery-caption">شجر کاری مہم 2025 🌱</div>
           </div>
-          <!-- item 2 - budding/grafting -->
+          <!-- Image 2 - Budding (via Unsplash random nature) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
-                src="https://picsum.photos/seed/budding1/400/400"
+                src="https://source.unsplash.com/featured/400x400/?bud,plant"
                 alt="قلم کاری"
               />
             </div>
             <div class="gallery-caption">نوجوان پودوں کی پیوندکاری</div>
           </div>
-          <!-- item 3 - nursery -->
+          <!-- Image 3 - Nursery (via Pexels) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
-                src="https://picsum.photos/seed/nursery1/400/400"
+                src="https://images.pexels.com/photos/4503265/pexels-photo-4503265.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
                 alt="نرسری"
               />
             </div>
             <div class="gallery-caption">چھوٹی نرسری ، پودوں کی دیکھ بھال</div>
           </div>
-          <!-- item 4 - graveyard plantation -->
+          <!-- Image 4 - Graveyard (Unsplash tree) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
-                src="https://picsum.photos/seed/graveyard1/400/400"
+                src="https://source.unsplash.com/featured/400x400/?graveyard,tree"
                 alt="قبرستان میں پودے"
               />
             </div>
             <div class="gallery-caption">قبرستان منصوبہ : پودے لگاتے ہوئے</div>
           </div>
-          <!-- item 5 - volunteers planting -->
+          <!-- Image 5 - Volunteers (Pexels) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
-                src="https://picsum.photos/seed/volunteers1/400/400"
+                src="https://images.pexels.com/photos/6646923/pexels-photo-6646923.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
                 alt="رضاکار"
               />
             </div>
             <div class="gallery-caption">نوجوان رضاکار محنت کرتے ہوئے</div>
           </div>
-          <!-- item 6 - budding roses or fruit -->
+          <!-- Image 6 - Roses (Picsum seed) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
@@ -480,27 +653,27 @@
             </div>
             <div class="gallery-caption">گلاب کی قلمیں تیار</div>
           </div>
-          <!-- item 7 - big tree planting -->
+          <!-- Image 7 - Big Tree (Unsplash) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
-                src="https://picsum.photos/seed/bigtree/400/400"
+                src="https://source.unsplash.com/featured/400x400/?big,tree"
                 alt="بڑا پودا"
               />
             </div>
             <div class="gallery-caption">تیار پودا زمین میں</div>
           </div>
-          <!-- item 8 - green plants closeup -->
+          <!-- Image 8 - Green Leaves (Pexels) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
-                src="https://picsum.photos/seed/greenleaves/400/400"
+                src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
                 alt="سرسبز پتے"
               />
             </div>
             <div class="gallery-caption">نیم کے نرم پتے</div>
           </div>
-          <!-- item 9 - planting in pots -->
+          <!-- Image 9 - Potting (Picsum) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
@@ -510,27 +683,27 @@
             </div>
             <div class="gallery-caption">شجر دوست نرسری (برتنوں میں)</div>
           </div>
-          <!-- item 10 - budding branch -->
+          <!-- Image 10 - Budding Branch (Unsplash) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
-                src="https://picsum.photos/seed/buddingbranch/400/400"
+                src="https://source.unsplash.com/featured/400x400/?branch,bud"
                 alt="شاخ پر قلم"
               />
             </div>
             <div class="gallery-caption">نئی کلیاں ، نئی امید</div>
           </div>
-          <!-- item 11 - group photo with plants -->
+          <!-- Image 11 - Group (Pexels) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
-                src="https://picsum.photos/seed/groupgreen/400/400"
+                src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
                 alt="گروپ تصویر"
               />
             </div>
             <div class="gallery-caption">شجر دوست رضاکار</div>
           </div>
-          <!-- item 12 - watering plants -->
+          <!-- Image 12 - Watering (Picsum) -->
           <div class="gallery-item">
             <div class="gallery-img">
               <img
@@ -542,37 +715,42 @@
           </div>
         </div>
 
-        <!-- instruction for you: how to replace with your own images -->
+        <!-- Note about images -->
         <div class="placeholder-note">
           <i class="fas fa-info-circle"></i>
-          اب تمام فرضی تصاویر Picsum (picsum.photos) سے لائی جا رہی ہیں۔ جب آپ
-          کی اپنی تصاویر GitHub پر اپ لوڈ ہو جائیں تو ان کے raw لنکس سے تبدیل کر
-          دیں۔
-          <br /><br />
-          <i class="fas fa-arrow-up"></i> موجودہ gallery میں کل 12 تصاویر کی جگہ
-          ہے — مکمل طور پر پودوں، باغبانی اور سرسبزی کی عکاسی۔
+          اب تصاویر مختلف ذرائع (Picsum، Unsplash، Pexels) سے بے ترتیب آ رہی
+          ہیں۔ جب آپ کی اپنی تصاویر تیار ہو جائیں تو ان کے لنکس سے تبدیل کر سکتے
+          ہیں۔
         </div>
       </div>
 
-      <!-- whatsapp group link / founder info (group) -->
+      <!-- WhatsApp Section with Updated Numbers -->
       <div class="whatsapp-section">
-        <i class="fab fa-whatsapp" style="font-size: 4rem"></i>
-        <p style="font-weight: bold">
-          واٹس ایپ گروپ "ملتان شجر دوست کلب" میں شامل ہوں
+        <i class="fab fa-whatsapp" style="font-size: 5rem"></i>
+        <p style="font-weight: bold; font-size: 2.5rem">
+          واٹس ایپ گروپ "ملتان شجر دوست کلب"
         </p>
-        <p>بانی: چوہدری محمد انور</p>
+        <p style="font-size: 2rem">بانی: چوہدری محمد انور</p>
         <a href="https://chat.whatsapp.com/example" target="_blank">
           <i class="fab fa-whatsapp"></i> گروپ لنک (یہاں کلک کریں)</a
         >
-        <p style="margin-top: 20px; font-size: 1.5rem">
-          📞 رابطہ:7209605-0345 ,4889393-0311
+        <p
+          style="
+            margin-top: 25px;
+            font-size: 1.8rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50px;
+          "
+        >
+          📞 رابطہ: 0345-7209605 , 0311-4889393
         </p>
-        <small style="display: block">
+        <small style="display: block; margin-top: 15px">
           * واٹس ایپ گروپ صرف شجرکاری کے رضاکاروں کے لیے</small
         >
       </div>
 
-      <!-- footer -->
+      <!-- Footer -->
       <footer>
         <p>🌳 ملتان شجر دوست کلب — درختوں سے پیار، انسانیت سے پیار 🌳</p>
         <p>
@@ -582,18 +760,17 @@
         <p>
           <i class="fas fa-map-pin"></i> ملتان، پاکستان | شجر دوست تحریک 2025
         </p>
-        <p style="font-size: 1.3rem">
-          تمام تصاویر بشکریہ Picsum (عارضی) | حقیقی تصاویر جلد اپ لوڈ ہوں گی
+        <p style="font-size: 1.4rem">
+          تصاویر بذریعہ: Picsum, Unsplash, Pexels (عارضی) | حقیقی تصاویر جلد اپ
+          لوڈ ہوں گی
         </p>
       </footer>
-
-      <!-- note: all picsum links are seeded with keywords for consistency -->
     </div>
-    <!-- optional decorative wave -->
+    <!-- Decorative Wave -->
     <div
       style="
-        height: 20px;
-        background: repeating-linear-gradient(45deg, #3f7e3f, #a5d6a5 20px);
+        height: 25px;
+        background: repeating-linear-gradient(45deg, #2e7d32, #a5d6a7 20px);
       "
     ></div>
   </body>
