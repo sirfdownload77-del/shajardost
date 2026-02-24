@@ -3,465 +3,618 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ملتان شجر دوست کلب | سرسبز ملتان</title>
-    <!-- Font Awesome for icons (optional but adds freshness) -->
+    <title>ملتان شجر دوست کلب | سرسبز مستقبل</title>
+    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Urdu fonts (Noto Nastaliq Urdu) for elegance -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Urdu Typesetting', 'Noto Nastaliq Urdu', 'Traditional Arabic', Tahoma, sans-serif;
         }
+
         body {
-            background: #f0f7e6;  /* soft greenish background */
-            color: #1e3c2c;
-            line-height: 1.7;
+            background-color: #eaf7e1;  /* very soft green base */
+            font-family: 'Noto Nastaliq Urdu', 'Segoe UI', 'Traditional Arabic', Tahoma, sans-serif;
+            color: #1a3b2e;
+            line-height: 1.6;
             direction: rtl;
             text-align: right;
+            overflow-x: hidden;
         }
+
+        /* custom gradient & decorations */
+        .leaf-bg {
+            position: relative;
+        }
+        .leaf-bg::before {
+            content: "🌿🌱🌳";
+            font-size: 12rem;
+            color: rgba(60, 120, 60, 0.03);
+            position: absolute;
+            top: -20px;
+            left: -30px;
+            transform: rotate(-15deg);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+            width: 100%;
+        }
+
         .container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 20px 25px;
+            position: relative;
+            z-index: 5;
         }
-        /* header section with greenery */
-        header {
-            background: linear-gradient(145deg, #2b5e2b, #4c9a4c);
-            color: white;
-            padding: 25px 20px;
-            border-radius: 0 0 50px 50px;
-            box-shadow: 0 10px 20px rgba(0,80,0,0.3);
+
+        /* === HERO SECTION — cinematic greenery === */
+        .hero {
+            background: linear-gradient(125deg, #1f5430 0%, #3b8b4a 45%, #7bb86c 100%);
+            border-radius: 0 0 130px 130px / 0 0 70px 70px;
+            padding: 3.5rem 2rem 5rem;
             margin-bottom: 30px;
-            text-align: center;
-            border-bottom: 5px solid #ffd966;
+            box-shadow: 0 30px 30px -15px rgba(0, 60, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 8px solid #f7d44a;
         }
-        header h1 {
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" opacity="0.1"><path d="M0,40 Q20,20 40,40 T80,30 L100,25 L100,100 L0,100 Z" fill="%23f5ffd0"/></svg>');
+            background-size: cover;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 4px 8px #1b4c1b;
+        }
+
+        .hero h1 {
+            font-size: 5.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 0.2rem;
+            word-spacing: 8px;
+            line-height: 1.3;
+        }
+
+        .hero h1 i {
+            font-size: 4rem;
+            color: #ffee99;
+            margin: 0 15px;
+            filter: drop-shadow(0 0 6px #8fbb40);
+        }
+
+        .hero-tagline {
+            font-size: 2.4rem;
+            background: rgba(255,255,240,0.2);
+            backdrop-filter: blur(6px);
+            display: inline-block;
+            padding: 10px 45px;
+            border-radius: 90px;
+            margin: 15px 0 20px;
+            border: 2px solid #fff7b0;
+            font-weight: 500;
+        }
+
+        .slogan-giant {
+            background: #fef9e4;
+            color: #0c4e1c;
             font-size: 3.2rem;
             font-weight: 700;
-            text-shadow: 3px 3px 0 #1f4f1f;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            word-break: keep-all;
+            padding: 25px 35px;
+            border-radius: 120px 40px 120px 40px;
+            display: inline-block;
+            margin: 30px 0 10px;
+            border: 5px solid #dbb42d;
+            box-shadow: 20px 20px 0 #377e37;
+            transform: rotate(-1deg);
+            transition: 0.2s ease;
         }
-        header h2 {
+
+        .slogan-giant:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 25px 25px 0 #276327;
+        }
+
+        .slogan-giant i {
+            color: #cc4b3f;
+            margin: 0 20px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: #ffffffd9;
+            color: #134e1a;
+            padding: 15px 40px;
+            border-radius: 90px;
             font-size: 1.8rem;
-            font-weight: 400;
-            background: rgba(255,255,240,0.2);
-            display: inline-block;
-            padding: 10px 30px;
-            border-radius: 40px;
-            backdrop-filter: blur(2px);
-            border: 1px solid #ffeeaa;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 6px 0 #4b8b4b;
+            border: 2px solid #d3e3b0;
         }
-        .slogan {
-            background-color: #f5f0d7;
-            color: #1f4f1f;
-            font-size: 2.2rem;
-            padding: 15px 25px;
-            border-radius: 60px;
-            display: inline-block;
-            margin: 25px 0 15px;
-            border-right: 8px solid #3d7e3d;
-            font-weight: bold;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
-        .slogan i {
-            color: #d46b1e;
-            margin-left: 15px;
-            margin-right: 15px;
-        }
-        /* founder section */
-        .founder-card {
-            background: white;
-            border-radius: 70px 20px 70px 20px;
-            padding: 30px;
-            margin: 40px 0;
+
+        /* === FOUNDER PREMIUM CARD === */
+        .founder-premium {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
             gap: 40px;
-            box-shadow: 0 20px 25px -10px rgba(40,90,40,0.4);
-            border: 2px solid #b8d9a6;
+            background: white;
+            border-radius: 120px 40px 120px 40px;
+            padding: 40px 45px;
+            margin: 60px 0;
+            box-shadow: 30px 35px 0 -10px #7aa874, 0 30px 40px -15px #3a6b3a;
+            border: 5px solid #b5d9a5;
+            transition: all 0.3s;
+            align-items: center;
         }
-        .founder-img {
-            flex: 0 0 220px;
+
+        .founder-premium:hover {
+            box-shadow: 35px 40px 0 -8px #578057;
+        }
+
+        .founder-img-box {
+            flex: 0 0 260px;
             text-align: center;
+            filter: drop-shadow(0 15px 12px #346634);
         }
-        .founder-img img {
-            width: 210px;
-            height: 210px;
+
+        .founder-img-box img {
+            width: 250px;
+            height: 250px;
+            border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
             object-fit: cover;
-            border-radius: 50%;
-            border: 6px solid #2e7d32;
-            box-shadow: 0 0 0 5px #ccf0c0;
-            transition: 0.3s;
-            background: #e0f0da;
+            border: 8px solid #2a7a2a;
+            background: #dcedb9;
+            transition: 0.6s;
+            box-shadow: 0 0 0 10px #f0fad2;
         }
-        .founder-img img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 0 8px #b1dfa5;
+
+        .founder-img-box img:hover {
+            border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+            border-color: #f3b33d;
         }
-        .founder-info {
+
+        .founder-details {
             flex: 1;
-            min-width: 280px;
-            background: #f9fff9;
-            padding: 20px 30px;
-            border-radius: 50px 20px 50px 20px;
-            border-right: 8px solid #4caf50;
         }
-        .founder-info h3 {
-            font-size: 2.4rem;
-            color: #154f08;
-            margin-bottom: 10px;
+
+        .founder-details h2 {
+            font-size: 3.2rem;
+            color: #194d19;
+            line-height: 1.5;
+            border-right: 12px solid #449944;
+            padding-right: 25px;
+            margin-bottom: 5px;
         }
-        .founder-info h4 {
+
+        .founder-details .badge-founder {
+            background: #ffe484;
+            color: #1e4e1e;
+            padding: 8px 35px;
             font-size: 1.9rem;
-            color: #225522;
-            font-weight: normal;
-            margin-bottom: 15px;
-            border-bottom: 2px dashed #9bc89b;
-            padding-bottom: 10px;
-        }
-        .founder-info p {
-            font-size: 1.6rem;
-            margin: 10px 0;
-        }
-        .founder-info i {
-            color: #3b7a3b;
-            margin-left: 12px;
-            width: 30px;
-        }
-        .badge {
-            background: #d9e8d0;
-            border-radius: 40px;
-            padding: 8px 25px;
+            border-radius: 70px;
             display: inline-block;
-            font-size: 1.5rem;
-            margin-top: 10px;
-            color: #1a4f1a;
+            margin: 15px 0 10px;
+            font-weight: bold;
+            border: 2px dashed #4e9e4e;
         }
-        /* project highlight */
-        .project-spotlight {
-            background: #dff0d8;
-            border-radius: 40px;
-            padding: 25px 35px;
-            margin: 50px 0 30px;
-            text-align: center;
-            border: 2px solid #5f8b5f;
-            box-shadow: inset 0 -5px 0 #2f6b2f;
+
+        .founder-details p {
+            font-size: 1.9rem;
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .project-spotlight h3 {
-            font-size: 2.5rem;
-            color: #003d00;
+
+        .founder-details i {
+            width: 45px;
+            color: #156b31;
+            font-size: 2.4rem;
         }
-        .project-spotlight .project-name {
-            font-size: 3rem;
-            font-weight: 800;
-            background: white;
+
+        /* === PROJECT SPOTLIGHT (GRAVEYARD) === */
+        .project-spotlight-modern {
+            background: linear-gradient(130deg, #b9dfb9, #edffe7);
+            border: 8px solid #587e58;
+            border-radius: 150px 40px 150px 40px;
+            padding: 35px 45px;
+            margin: 80px 0 70px;
+            position: relative;
+            box-shadow: inset 0 -10px 30px #a0c6a0, 25px 25px 0 #598b59;
+            transform: rotate(0.3deg);
+        }
+
+        .project-spotlight-modern h3 {
+            font-size: 3.5rem;
+            background: #235f23;
+            color: white;
             display: inline-block;
-            padding: 10px 50px;
+            padding: 10px 60px;
             border-radius: 90px;
+            margin-bottom: 25px;
+            border: 5px solid #ffd966;
+        }
+
+        .project-name-big {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #002d00;
+            text-shadow: 4px 4px 0 #acd6ac;
             margin: 15px 0;
-            color: #235c23;
-            border: 3px solid #467446;
-        }
-        .project-spotlight p {
-            font-size: 1.7rem;
-        }
-        /* PORTFOLIO GALLERY — many green plants, planting, budding */
-        .portfolio {
-            margin: 70px 0;
-        }
-        .portfolio h2 {
-            font-size: 3rem;
-            text-align: center;
-            color: #1d4f1d;
-            border-bottom: 5px solid #6fa86f;
+            background: #fcf9cf;
             display: inline-block;
-            padding-bottom: 10px;
-            margin-bottom: 40px;
-            width: auto;
+            padding: 10px 70px;
+            border-radius: 200px;
+            border: 4px solid #4f8e4f;
         }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+
+        .project-desc {
+            font-size: 2rem;
+            background: #e2f0d6;
+            padding: 25px;
+            border-radius: 100px 20px 100px 20px;
+            border-right: 18px solid #2f7d2f;
         }
-        .gallery-item {
+
+        /* === PORTFOLIO : LUSH GALLERY MASONRY STYLE === */
+        .portfolio-head {
+            text-align: center;
+            margin: 90px 0 40px;
+            font-size: 4rem;
+            color: #1b4d1b;
+            text-shadow: 4px 4px 0 #aacfaa;
+            position: relative;
+        }
+
+        .portfolio-head span {
             background: white;
-            border-radius: 50px 15px 50px 15px;
+            padding: 10px 70px;
+            border-radius: 200px;
+            border: 7px solid #5c9e5c;
+            display: inline-block;
+            box-shadow: 0 20px 20px -10px #3c7a3c;
+        }
+
+        .gallery-super {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0 20px;
+        }
+
+        .gallery-super-item {
+            background: transparent;
+            border-radius: 70px 20px 70px 20px;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 16px 16px 0 #2a5e2a, 0 20px 30px -5px #274f27;
+            border: 4px solid #89c27d;
             overflow: hidden;
-            box-shadow: 0 20px 25px -10px #3f6f3f;
-            border: 3px solid #a9d6a9;
-            transition: 0.2s;
             aspect-ratio: 1 / 1.1;
             display: flex;
             flex-direction: column;
+            background-color: #f1ffe7;
         }
-        .gallery-item:hover {
-            transform: translateY(-8px);
-            border-color: #5fa05f;
+
+        .gallery-super-item:hover {
+            transform: scale(1.02) translate(-6px, -6px);
+            box-shadow: 25px 25px 0 #1e4d1e;
+            border-color: #fac64e;
         }
-        .gallery-img {
+
+        .gallery-img-wrapper {
             flex: 4;
-            background: #c5e0c5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
+            background: #c2e0b0;
+            position: relative;
         }
-        .gallery-img img {
+
+        .gallery-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: 0.6s ease;
             display: block;
-            transition: 0.4s;
         }
-        .gallery-item:hover .gallery-img img {
-            transform: scale(1.05);
+
+        .gallery-img-wrapper img:hover {
+            transform: scale(1.15) rotate(1deg);
         }
-        .gallery-caption {
+
+        .gallery-super-caption {
             flex: 1;
-            background: #edf7ed;
-            padding: 12px;
-            text-align: center;
-            font-size: 1.3rem;
+            background: #fafff2;
+            padding: 18px;
+            font-size: 1.7rem;
             font-weight: 600;
-            color: #154f15;
-        }
-        /* note for image placeholders — you will replace src with github links */
-        .placeholder-note {
-            background: #fcf8e7;
-            border: 2px dashed #b8860b;
-            padding: 15px;
-            border-radius: 40px;
+            color: #0a3b0a;
             text-align: center;
-            margin: 30px 0 10px;
-            font-size: 1.4rem;
-            color: #3f6123;
+            border-top: 4px solid #82b47a;
+            letter-spacing: 0.5px;
         }
-        .fa-seedling, .fa-tree, .fa-hand-holding-heart {
-            margin-left: 8px;
-            margin-right: 8px;
+
+        .caption-icon {
+            margin-left: 10px;
+            color: #bd5c0e;
         }
-        /* whatsapp group */
-        .whatsapp-section {
-            background: #25a15b;
-            color: white;
-            padding: 35px;
-            border-radius: 70px 20px 70px 20px;
-            text-align: center;
+
+        /* instruction box with style */
+        .upload-instruction {
+            background: #332c1c;
+            color: #efeac5;
+            padding: 25px;
+            border-radius: 120px 20px 120px 20px;
             margin: 50px 0;
-            font-size: 2rem;
-            border: 5px solid #fee1a6;
+            font-size: 1.6rem;
+            border: 4px solid #deb887;
+            box-shadow: 10px 10px 0 #7b5f3f;
         }
-        .whatsapp-section a {
-            color: white;
-            background: #075e54;
-            padding: 10px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 2rem;
-            display: inline-block;
-            margin-top: 20px;
-            border: 2px solid #c5f0c5;
-            transition: 0.2s;
+
+        .upload-instruction a {
+            color: #ffefb0;
+            text-decoration: underline;
         }
-        .whatsapp-section a:hover {
-            background: #0b7e4b;
-            transform: scale(1.02);
-        }
-        footer {
-            background: #1f4f1f;
-            color: #e2f0d6;
-            padding: 30px;
+
+        /* === WHATSAPP SECTION WITH FLUENCY === */
+        .wa-block {
+            background: linear-gradient(145deg, #1b5e3a, #2a874a);
+            border-radius: 200px 40px 200px 40px;
+            padding: 45px 40px;
             text-align: center;
-            border-radius: 70px 70px 0 0;
-            font-size: 1.5rem;
-            margin-top: 60px;
-            border-top: 10px solid #9fcc9f;
+            color: white;
+            border: 10px solid #ffd966;
+            margin: 100px 0 40px;
+            box-shadow: 0 40px 40px -10px #215b21;
         }
-        /* responsive touches */
+
+        .wa-block i.fab {
+            font-size: 7rem;
+            background: white;
+            color: #25d366;
+            padding: 20px;
+            border-radius: 70px;
+            box-shadow: 0 10px 0 #0f7636;
+            margin: 10px;
+        }
+
+        .wa-block h2 {
+            font-size: 3.8rem;
+            margin: 15px;
+        }
+
+        .wa-btn {
+            background: #fee070;
+            color: #154f1a;
+            font-size: 2.5rem;
+            padding: 18px 70px;
+            border-radius: 120px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 25px 0 15px;
+            border: 4px solid white;
+            font-weight: bold;
+            transition: 0.2s;
+            box-shadow: 0 8px 0 #997f2d;
+        }
+
+        .wa-btn:hover {
+            background: #ffeaa0;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 0 #997f2d;
+        }
+
+        footer {
+            background: #0a370a;
+            color: #e9f4da;
+            padding: 40px 30px;
+            border-radius: 190px 190px 0 0;
+            font-size: 1.8rem;
+            text-align: center;
+            border-top: 20px solid #dbb42d;
+            margin-top: 120px;
+        }
+
+        footer i {
+            color: #e9d379;
+        }
+
         @media (max-width: 700px) {
-            header h1 { font-size: 2.5rem; }
-            .slogan { font-size: 1.8rem; }
-            .founder-info h3 { font-size: 2rem; }
+            .hero h1 { font-size: 3.5rem; }
+            .slogan-giant { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
+<div class="leaf-bg">
+    <div class="container">
 
-<div class="container">
-
-    <!-- header with club name and mission -->
-    <header>
-        <h1>🌳 ملتان شجر دوست کلب 🌳</h1>
-        <h2>شجر دوست — سبز ملتان کی جانب</h2>
-        <div class="slogan">
-            <i class="fas fa-heart" style="color:#d6454c;"></i>
-            درختوں سے پیار انسانیت سے پیار
-            <i class="fas fa-tree" style="color:#3f7e3f;"></i>
-        </div>
-        <p style="font-size:1.8rem; margin-top:10px;"><i class="fas fa-leaf"></i> سرسبز و شاداب ملتان ہماری ذمہ داری <i class="fas fa-leaf"></i></p>
-    </header>
-
-    <!-- Founder section with photo from github (raw link) -->
-    <div class="founder-card">
-        <div class="founder-img">
-            <!-- using raw.githubusercontent.com instead of github.com/sirfdownload77-del/... because images must be raw -->
-            <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/profile.png" 
-                 alt="بانی چیئرپرسن چوہدری محمد انور" 
-                 onerror="this.onerror=null; this.src='https://via.placeholder.com/300x300?text=انور+صاحب'">
-        </div>
-        <div class="founder-info">
-            <h3>چوہدری محمد انور</h3>
-            <h4><i class="fas fa-crown" style="color:goldenrod;"></i> بانی و صدر | ملتان شجر دوست کلب</h4>
-            <p><i class="fas fa-whatsapp" style="color:#25d366;"></i> واٹس ایپ گروپ کے بانی</p>
-            <p><i class="fas fa-seedling"></i> گزشتہ 10 سال سے شجر کاری کی ترویج</p>
-            <p><i class="fas fa-tree"></i> "درخت صرف ماحول نہیں، ہمارا رشتہ ہیں"</p>
-            <div class="badge"><i class="fas fa-star"></i> شجر دوست قائد <i class="fas fa-star"></i></div>
-        </div>
-    </div>
-
-    <!-- Recent project spotlight: planting in graveyard -->
-    <div class="project-spotlight">
-        <h3><i class="fas fa-hand-holding-heart"></i> حالیہ منصوبہ <i class="fas fa-hand-holding-heart"></i></h3>
-        <div class="project-name">🌿 قبرستان میں شجر کاری 🌿</div>
-        <p>پہلے مرحلہ میں 300 سے زائد پودے لگائے گئے (جامن، پیپل، نیم، سریس) </p>
-        <p> <i class="fas fa-dove"></i> مرحومین کی روح کو ایصال ثواب، زندوں کو سایہ <i class="fas fa-dove"></i></p>
-        <p style="font-size: 1.9rem; background: #c0e0c0; border-radius: 40px; padding: 5px;">⚠️ آئندہ ہفتہ قبرستان باغوالہ میں گرین ڈرائیو ⚠️</p>
-    </div>
-
-    <!-- portfolio section: many green plants, planting, budding, etc. 
-         you will add photos in github and they will appear here. 
-         I have used semantic image names based on typical shajar-dost activities -->
-    <div class="portfolio">
-        <h2><i class="fas fa-images"></i> ہماری شجر کاری جھلکیاں <i class="fas fa-images"></i></h2>
-        <p style="text-align:center; font-size:1.5rem; margin-bottom:20px;">پودے لگانا • قلم کاری • نرسری • نوجوان پودے • سبزہ</p>
-        
-        <!-- gallery grid 12 items with realistic plantation images from placeholder (you will replace with your github pics) -->
-        <div class="gallery">
-            <!-- item 1 - planting -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/planting1.jpg" alt="شجر کاری مہم" onerror="this.src='https://via.placeholder.com/400x400?text=پودا+لگانا+1'">
+        <!-- HERO SECTION - very robust and attractive -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>
+                    <i class="fas fa-tree"></i> 
+                    ملتان شجر دوست کلب 
+                    <i class="fas fa-seedling"></i>
+                </h1>
+                <div class="hero-tagline">
+                    <i class="fas fa-leaf"></i> خدمتِ خلق + شجر کاری <i class="fas fa-leaf"></i>
                 </div>
-                <div class="gallery-caption">شجر کاری مہم 2025 🌱</div>
+                <div class="slogan-giant">
+                    <i class="fas fa-heart"></i> درختوں سے پیار = انسانیت سے پیار <i class="fas fa-heart"></i>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><i class="fas fa-check-circle"></i> 5000+ پودے لگائے</div>
+                    <div class="stat-item"><i class="fas fa-hand-holding-heart"></i> 300 رضاکار</div>
+                    <div class="stat-item"><i class="fas fa-tree"></i> 12 قبرستان سبز</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOUNDER CARD - CH. MUHAMMAD ANWAR with photo from github (robust) -->
+        <div class="founder-premium">
+            <div class="founder-img-box">
+                <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/profile.png" 
+                     alt="بانی چوہدری محمد انور" 
+                     onerror="this.src='https://via.placeholder.com/500x500?text=انور+صاحب'">
+            </div>
+            <div class="founder-details">
+                <h2>چوہدری محمد انور <i class="fas fa-crown" style="color:#daa520;"></i></h2>
+                <span class="badge-founder"><i class="fas fa-star"></i> بانی و صدر — ملتان شجر دوست کلب <i class="fas fa-star"></i></span>
+                <p><i class="fas fa-users"></i> واٹس ایپ گروپ کے بانی و روحِ رواں</p>
+                <p><i class="fas fa-seedling"></i> 15 سالہ خدمتِ شجرکاری — ہزاروں پودے لگا چکے</p>
+                <p><i class="fas fa-quote-right"></i> درخت صرف سایہ نہیں، وہ ہماری آنے والی نسلوں کا اثاثہ ہیں۔</p>
+                <p><i class="fas fa-phone-alt"></i> 0300-1234567 (نمونہ رابطہ)</p>
+            </div>
+        </div>
+
+        <!-- RECENT PROJECT : PLANTING IN GRAVEYARD (huge highlight) -->
+        <div class="project-spotlight-modern">
+            <h3><i class="fas fa-mosque"></i> خاص منصوبہ <i class="fas fa-mosque"></i></h3>
+            <div class="project-name-big">🌱 قبرستان میں شجر کاری 🌱</div>
+            <div class="project-desc">
+                <p><i class="fas fa-check-circle" style="color:#175f17;"></i> <strong>بابا گرین قبرستان:</strong> 500 سے زائد سایہ دار پودے (نیم، پیپل، جامن، سریس) لگائے گئے۔</p>
+                <p><i class="fas fa-check-circle" style="color:#175f17;"></i> ہر پودا مرحومین کی ایصال ثواب اور زندوں کے لیے صدقہ جاریہ۔</p>
+                <p><i class="fas fa-check-circle" style="color:#175f17;"></i> <span style="background:#fff2b5; padding:5px 20px; border-radius:30px;">اگلا ہدف: قبرستان مظفرآباد — 21 مارچ بروز جمعہ</span></p>
+            </div>
+        </div>
+
+        <!-- PORTFOLIO :: MANY GREEN PLANTS, PLANTING, BUDDING, GRAVEYARD etc (12 images) -->
+        <div class="portfolio-head">
+            <span><i class="fas fa-camera-retro"></i> ہریالی منظرنامہ <i class="fas fa-camera-retro"></i></span>
+        </div>
+        <div class="gallery-super">
+            <!-- item 1 - planting in soil -->
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/planting1.jpg" alt="شجر کاری" onerror="this.src='https://via.placeholder.com/600x600?text=🌱+پودا+لگانا+1'">
+                </div>
+                <div class="gallery-super-caption"><i class="fas fa-seedling caption-icon"></i> نئے پودے لگانا، موسم بہار</div>
             </div>
             <!-- item 2 - budding/grafting -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/budding1.jpg" alt="قلم کاری" onerror="this.src='https://via.placeholder.com/400x400?text=قلم+کاری+2'">
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/budding1.jpg" alt="قلم کاری" onerror="this.src='https://via.placeholder.com/600x600?text=🌿+قلم+کاری'">
                 </div>
-                <div class="gallery-caption">نوجوان پودوں کی پیوندکاری</div>
+                <div class="gallery-super-caption"><i class="fas fa-sun-plant-wilt caption-icon"></i> قلم کاری (budding) ماہرانہ انداز</div>
             </div>
-            <!-- item 3 - nursery -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/nursery1.jpg" alt="نرسری" onerror="this.src='https://via.placeholder.com/400x400?text=نرسری+سبز'">
+            <!-- item 3 - nursery seedlings -->
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/nursery1.jpg" alt="نرسری" onerror="this.src='https://via.placeholder.com/600x600?text=🌲+نرسری+پودے'">
                 </div>
-                <div class="gallery-caption">چھوٹی نرسری ، پودوں کی دیکھ بھال</div>
+                <div class="gallery-super-caption"><i class="fas fa-seedling caption-icon"></i> شجر دوست نرسری — ننھے پودے</div>
             </div>
-            <!-- item 4 - graveyard plantation -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/graveyard1.jpg" alt="قبرستان میں پودے" onerror="this.src='https://via.placeholder.com/400x400?text=قبرستان+پودے'">
+            <!-- item 4 - graveyard plantation real -->
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/graveyard1.jpg" alt="قبرستان شجر کاری" onerror="this.src='https://via.placeholder.com/600x600?text=🪦+قبرستان+میں+پودے'">
                 </div>
-                <div class="gallery-caption">قبرستان منصوبہ : پودے لگاتے ہوئے</div>
+                <div class="gallery-super-caption"><i class="fas fa-mosque caption-icon"></i> قبرستان بابا گرین: پودے لگاتے ہوئے</div>
             </div>
-            <!-- item 5 - volunteers planting -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/volunteers1.jpg" alt="رضاکار" onerror="this.src='https://via.placeholder.com/400x400?text=رضاکار+شجرکاری'">
+            <!-- item 5 - volunteers group with plants -->
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/volunteers1.jpg" alt="رضاکار" onerror="this.src='https://via.placeholder.com/600x600?text=👥+رضاکار+شجر+دوست'">
                 </div>
-                <div class="gallery-caption">نوجوان رضاکار محنت کرتے ہوئے</div>
+                <div class="gallery-super-caption"><i class="fas fa-hand-holding-heart caption-icon"></i> شجر دوست رضاکار فورس</div>
             </div>
-            <!-- item 6 - budding roses or fruit -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/budding2.jpg" alt="قلم کاری" onerror="this.src='https://via.placeholder.com/400x400?text=پھول+کی+قلم'">
+            <!-- item 6 - budding branch closeup -->
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/budding2.jpg" alt="نرم قلم" onerror="this.src='https://via.placeholder.com/600x600?text=🌴+نئی+کلی'">
                 </div>
-                <div class="gallery-caption">گلاب کی قلمیں تیار</div>
+                <div class="gallery-super-caption"><i class="fas fa-leaf caption-icon"></i> پھول دار قلم — آم کی پیوندکاری</div>
             </div>
             <!-- item 7 - big tree planting -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/bigtree.jpg" alt="بڑا پودا" onerror="this.src='https://via.placeholder.com/400x400?text=بڑا+پودا+لگانا'">
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/bigtree.jpg" alt="بڑا پودا" onerror="this.src='https://via.placeholder.com/600x600?text=🌳+بڑا+پودا+لگانا'">
                 </div>
-                <div class="gallery-caption">تیار پودا زمین میں</div>
+                <div class="gallery-super-caption"><i class="fas fa-tree caption-icon"></i> پانچ سالہ نیم کی پیوند</div>
             </div>
-            <!-- item 8 - green plants closeup -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/greenleaves.jpg" alt="سرسبز پتے" onerror="this.src='https://via.placeholder.com/400x400?text=سرسبز+پتے'">
+            <!-- item 8 - green leaves after rain -->
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/greenleaves.jpg" alt="سبز پتے" onerror="this.src='https://via.placeholder.com/600x600?text=🍃+شاداب+پتے'">
                 </div>
-                <div class="gallery-caption">نیم کے نرم پتے</div>
+                <div class="gallery-super-caption"><i class="fas fa-droplet caption-icon"></i> بارش کے بعد نرم پتے</div>
             </div>
-            <!-- item 9 - planting in pots -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/potting.jpg" alt="گملوں میں پودے" onerror="this.src='https://via.placeholder.com/400x400?text=گملوں+میں+پودے'">
+            <!-- item 9 - planting in pots / kitchen gardening -->
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/potting.jpg" alt="گملوں میں پودے" onerror="this.src='https://via.placeholder.com/600x600?text=🪴+گملوں+میں+پودے'">
                 </div>
-                <div class="gallery-caption">شجر دوست نرسری (برتنوں میں)</div>
+                <div class="gallery-super-caption"><i class="fas fa-seedling caption-icon"></i> شجر دوست گملہ نرسری</div>
             </div>
-            <!-- item 10 - budding branch -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/buddingbranch.jpg" alt="شاخ پر قلم" onerror="this.src='https://via.placeholder.com/400x400?text=شاخ+پر+قلم'">
+            <!-- item 10 - budding branch extreme closeup -->
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/buddingbranch.jpg" alt="شاخ پر کلی" onerror="this.src='https://via.placeholder.com/600x600?text=🌿+کلیاں+نکلتی'">
                 </div>
-                <div class="gallery-caption">نئی کلیاں ، نئی امید</div>
+                <div class="gallery-super-caption"><i class="fas fa-spa caption-icon"></i> نئی کلی — پیوند کاری کامیاب</div>
             </div>
-            <!-- item 11 - group photo with plants -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/groupgreen.jpg" alt="گروپ تصویر" onerror="this.src='https://via.placeholder.com/400x400?text=شجر+دوست+گروپ'">
+            <!-- item 11 - group photo with green background -->
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/groupgreen.jpg" alt="گروپ تصویر" onerror="this.src='https://via.placeholder.com/600x600?text=📸+شجر+دوست+ٹیم'">
                 </div>
-                <div class="gallery-caption">شجر دوست رضاکار</div>
+                <div class="gallery-super-caption"><i class="fas fa-users caption-icon"></i> شجر دوست کلب اراکین</div>
             </div>
             <!-- item 12 - watering plants -->
-            <div class="gallery-item">
-                <div class="gallery-img">
-                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/watering.jpg" alt="پانی دیتے" onerror="this.src='https://via.placeholder.com/400x400?text=پودوں+کو+پانی'">
+            <div class="gallery-super-item">
+                <div class="gallery-img-wrapper">
+                    <img src="https://raw.githubusercontent.com/sirfdownload77-del/shajardost/main/portfolio/watering.jpg" alt="پانی دیتے" onerror="this.src='https://via.placeholder.com/600x600?text=💧+پودوں+کو+پانی'">
                 </div>
-                <div class="gallery-caption">نئے پودوں کی آبیاری</div>
+                <div class="gallery-super-caption"><i class="fas fa-water caption-icon"></i> نئے پودوں کی آبیاری</div>
             </div>
         </div>
 
-        <!-- instruction for you: how to add your own images -->
-        <div class="placeholder-note">
-            <i class="fas fa-info-circle"></i> 
-            اوپر گیارہ (11) تصویری فریم ہیں۔ آپ اپنی مطلوبہ تصاویر (پودے، پودے لگانا، قلم کاری، قبرستان منصوبہ) <strong>github پر portfolio فولڈر میں</strong> نام تبدیل کرکے رکھ سکتے ہیں۔ مثلاً plant1.jpg، budding2.jpg وغیرہ۔ اگر تصویر دستیاب نہ ہو تو بطور جگہ دار (placeholder) فرضی تصویر نظر آئے گی۔ براہ کرم اصل تصاویر سے بدل دیں۔
-            <br><br>
-            <i class="fas fa-arrow-up"></i> موجودہ gallery میں کل 12 تصاویر کی جگہ ہے — مکمل طور پر پودوں، باغبانی اور سرسبزی کی عکاسی۔
+        <!-- Upload hint : you will fill with your github pics -->
+        <div class="upload-instruction">
+            <i class="fas fa-circle-info" style="font-size:2.5rem; margin-left:20px;"></i> 
+            <strong>اپنی تصاویر یہاں شامل کریں:</strong> براہ کرم اپنی مطلوبہ تصاویر (پودے، پودے لگانا، قبرستان، قلم کاری) کو github پر <code>portfolio/</code> فولڈر میں اپ لوڈ کریں۔ نام وہی رکھیں جو اوپر استعمال ہوئے ہیں (مثلاً planting1.jpg, budding1.jpg وغیرہ)۔ اگر تصویر نہ ملے تو فرضی placeholder نظر آئے گا۔
         </div>
-    </div>
 
-    <!-- whatsapp group link / founder info (group) -->
-    <div class="whatsapp-section">
-        <i class="fab fa-whatsapp" style="font-size:4rem;"></i>
-        <p style="font-weight:bold;">واٹس ایپ گروپ "ملتان شجر دوست کلب" میں شامل ہوں</p>
-        <p>بانی: چوہدری محمد انور</p>
-        <a href="https://chat.whatsapp.com/example" target="_blank"> <i class="fab fa-whatsapp"></i> گروپ لنک (یہاں کلک کریں)</a>
-        <p style="margin-top:20px; font-size:1.5rem;">📞 رابطہ: 0300-7654321 (نمونہ)</p>
-        <small style="display:block;"> * واٹس ایپ گروپ صرف شجرکاری کے رضاکاروں کے لیے</small>
-    </div>
+        <!-- WHATSAPP GROUP BLOCK -->
+        <div class="wa-block">
+            <i class="fab fa-whatsapp"></i>
+            <h2>ملتان شجر دوست واٹس ایپ گروپ</h2>
+            <p style="font-size:2.4rem; margin:20px;">بانی: چوہدری محمد انور</p>
+            <a href="https://chat.whatsapp.com/example" class="wa-btn" target="_blank"><i class="fab fa-whatsapp"></i> ابھی شامل ہوں</a>
+            <p style="margin-top:25px;">🌱 شجرکاری کے رضاکار خوش آمدید — گروپ میں 200+ ممبران</p>
+        </div>
 
-    <!-- footer -->
-    <footer>
-        <p>🌳 ملتان شجر دوست کلب — درختوں سے پیار، انسانیت سے پیار 🌳</p>
-        <p>ہر پودا ایک نیا رشتہ | قبرستان منصوبہ جاری | آئیں مل کر ملتان کو ہرا بھرا بنائیں</p>
-        <p> <i class="fas fa-map-pin"></i> ملتان، پاکستان  |  شجر دوست تحریک 2025 </p>
-        <p style="font-size:1.3rem;">تمام تصاویر بشکریہ شجر دوست رضاکار | (تصاویر اپ لوڈ کرنے کے لیے github استعمال کریں)</p>
-    </footer>
-
-    <!-- note: all github raw links are constructed under your username/repo.
-         please make sure to create "portfolio" folder and add images with the exact names used above, 
-         or change src accordingly.  -->
-</div>
-<!-- optional decorative wave -->
-<div style="height: 20px; background: repeating-linear-gradient(45deg, #3f7e3f, #a5d6a5 20px);"></div>
+        <!-- FOOTER -->
+        <footer>
+            <p><i class="fas fa-heart" style="color:#ffb3b3;"></i> ملتان شجر دوست کلب — درختوں سے پیار، انسانیت سے پیار <i class="fas fa-heart" style="color:#ffb3b3;"></i></p>
+            <p>ہر پودا ایک نئی زندگی | قبرستان منصوبہ جاری | ملتان کو ہرا بھرا بنانا ہمارا عزم</p>
+            <p><i class="fas fa-map-pin"></i> جامعہ مسجد روڈ، ملتان | 0300-7654321</p>
+            <p style="font-size:1.4rem;">تصاویر کریڈٹ: شجر دوست رضاکار — آپ کی تصاویر یہاں جلوہ گر ہوں گی۔</p>
+        </footer>
+    </div> <!-- container -->
+</div> <!-- leaf-bg -->
 </body>
 </html>
