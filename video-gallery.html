@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ur">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ملتان شجر دوست کلب | ویڈیو گیلری</title>
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Google Fonts for Urdu -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Lateef&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-green: #2e7d32;
+        --primary-dark: #1b5e20;
+        --primary-light: #a5d6a7;
+        --accent-gold: #ffb300;
+        --accent-sand: #f5f0d7;
+        --text-dark: #1e3c2c;
+        --text-light: #f1f8e9;
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 10px 30px rgba(0, 50, 0, 0.25);
+        --shadow-lg: 0 20px 50px rgba(0, 80, 0, 0.35);
+        --font-urdu: "Amiri", "Noto Nastaliq Urdu", "Traditional Arabic", serif;
+      }
+
+      body {
+        background: #f0f7e6;
+        background-image:
+          radial-gradient(circle at 10% 20%, rgba(165,214,167,0.3) 0%, transparent 30%),
+          radial-gradient(circle at 90% 80%, rgba(100,150,100,0.2) 0%, transparent 40%);
+        color: var(--text-dark);
+        line-height: 1.7;
+        direction: rtl;
+        text-align: right;
+        font-family: var(--font-urdu);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(135deg, #1b5e20, #2e7d32, #4caf50);
+        color: white;
+        padding: 30px 35px;
+        border-radius: 0 0 80px 80px;
+        box-shadow: var(--shadow-lg);
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 6px solid var(--accent-gold);
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "🎬🌿🍃";
+        position: absolute;
+        top: -20px;
+        left: 0;
+        font-size: 120px;
+        opacity: 0.1;
+        transform: rotate(-10deg);
+        white-space: nowrap;
+        color: white;
+        pointer-events: none;
+      }
+
+      .back-home {
+        background: var(--accent-gold);
+        color: var(--primary-dark);
+        padding: 14px 35px;
+        border-radius: 60px;
+        text-decoration: none;
+        font-size: 1.6rem;
+        font-weight: 700;
+        border: 3px solid white;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: var(--shadow-sm);
+        z-index: 2;
+      }
+
+      .back-home:hover {
+        background: #ffe082;
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-light);
+      }
+
+      header h1 {
+        font-size: clamp(2.2rem, 5vw, 3rem);
+        font-weight: 700;
+        text-shadow: 3px 3px 0 #1b5e20;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(5px);
+        padding: 10px 40px;
+        border-radius: 70px;
+        border: 2px solid rgba(255,255,255,0.3);
+        z-index: 2;
+      }
+
+      /* Intro */
+      .gallery-intro {
+        text-align: center;
+        margin: 30px 0 50px;
+        font-size: 2rem;
+        background: white;
+        padding: 35px;
+        border-radius: 100px 30px 100px 30px;
+        border: 4px solid var(--primary-green);
+        box-shadow: var(--shadow-md);
+      }
+
+      .gallery-intro span {
+        background: linear-gradient(145deg, #e8f5e8, #d0e8d0);
+        padding: 10px 45px;
+        border-radius: 70px;
+        display: inline-block;
+        margin: 20px 0 10px;
+        color: #1b5e20;
+        font-weight: 700;
+        border: 2px dashed var(--primary-green);
+      }
+
+      /* Video Grid */
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin: 60px 0;
+      }
+
+      .video-card {
+        background: white;
+        border-radius: 70px 20px 70px 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        border: 4px solid var(--primary-light);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        aspect-ratio: 1 / 1.1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .video-card::after {
+        content: "▶️";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 5rem;
+        opacity: 0.8;
+        transition: opacity 0.3s, transform 0.3s;
+        background: rgba(0,0,0,0.5);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 60px;
+        border: 3px solid white;
+        pointer-events: none;
+      }
+
+      .video-card:hover::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+        background: rgba(46,125,50,0.8);
+      }
+
+      .video-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        border-color: var(--primary-green);
+        box-shadow: 0 30px 50px -15px #1b5e20;
+      }
+
+      .video-thumb {
+        flex: 4;
+        background: #c5e0c5;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .video-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s ease;
+      }
+
+      .video-card:hover .video-thumb img {
+        transform: scale(1.12);
+      }
+
+      .video-caption {
+        flex: 1;
+        background: linear-gradient(135deg, #edf7ed, #ffffff);
+        padding: 18px;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1b5e20;
+        border-top: 4px solid var(--primary-light);
+      }
+
+      /* Lightbox (single, dynamic) */
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 30, 10, 0.97);
+        backdrop-filter: blur(12px);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        direction: rtl;
+      }
+
+      .lightbox.show {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      .lightbox-content {
+        max-width: 90vw;
+        max-height: 80vh;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 10px solid var(--accent-sand);
+        border-radius: 50px;
+        box-shadow: 0 0 60px #81c784;
+        background: #1b5e20;
+        padding: 8px;
+        animation: zoomIn 0.4s;
+      }
+
+      @keyframes zoomIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+
+      .lightbox-content iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        border: none;
+      }
+
+      .lightbox-caption {
+        background: var(--accent-sand);
+        color: #1b5e20;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        padding: 15px 60px;
+        border-radius: 80px;
+        margin-top: 25px;
+        font-weight: 700;
+        text-align: center;
+        border: 4px solid var(--primary-green);
+        box-shadow: var(--shadow-md);
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        background: #e63946;
+        color: white;
+        font-size: 3rem;
+        text-decoration: none;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 4px solid white;
+        transition: all 0.3s;
+        box-shadow: 0 8px 20px black;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+      }
+
+      .close-btn:hover {
+        background: #c82333;
+        transform: rotate(180deg) scale(1.1);
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(145deg, #1b5e20, #0d3d0d);
+        color: #e2f0d6;
+        padding: 40px;
+        text-align: center;
+        border-radius: 100px 100px 0 0;
+        font-size: 1.7rem;
+        margin-top: 80px;
+        border-top: 10px solid var(--accent-gold);
+      }
+
+      footer a {
+        color: #ffd966;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 700px) {
+        header {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .back-home {
+          font-size: 1.4rem;
+          padding: 10px 25px;
+        }
+        .close-btn {
+          width: 60px;
+          height: 60px;
+          font-size: 2.2rem;
+          top: 15px;
+          left: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-right"></i> واپس مرکزی صفحہ</a>
+        <h1><i class="fas fa-video"></i> ویڈیو گیلری <i class="fas fa-video"></i></h1>
+        <a href="lightbox-gallery.html" class="back-home" style="background:#2e7d32; color:white;"><i class="fas fa-images"></i> تصویری گیلری</a>
+      </header>
+
+      <div class="gallery-intro">
+        <i class="fas fa-hand-pointer fa-2x" style="color:#2e7d32"></i>
+        <span>کارڈ پر کلک کریں اور ویڈیو دیکھیں</span>
+        <i class="fas fa-tree fa-2x" style="color:#2e7d32"></i>
+        <p style="font-size:1.6rem; margin-top:15px; color:#1b5e20">
+          <i class="fas fa-leaf"></i> شجر کاری • قلم کاری • نرسری • رضاکار <i class="fas fa-leaf"></i>
+        </p>
+      </div>
+
+      <!-- Video Cards (each has data-video-id) -->
+      <div class="video-grid">
+        <!-- Card 1 -->
+        <div class="video-card" data-video-id="dQw4w9WgXcQ" data-caption="🌳 شجر کاری مہم 2025">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="ویڈیو تھمب نیل">
+          </div>
+          <div class="video-caption">🌱 شجر کاری مہم 2025</div>
+        </div>
+        <!-- Card 2 -->
+        <div class="video-card" data-video-id="3PWHIPUNh1Y" data-caption="🌿 نوجوان پودوں کی پیوندکاری">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/3PWHIPUNh1Y/hqdefault.jpg" alt="ویڈیو تھمب نیل">
+          </div>
+          <div class="video-caption">🌿 نوجوان پودوں کی پیوندکاری</div>
+        </div>
+        <!-- Card 3 -->
+        <div class="video-card" data-video-id="L6c4kImkQpU" data-caption="🌱 چھوٹی نرسری ، پودوں کی دیکھ بھال">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/L6c4kImkQpU/hqdefault.jpg" alt="ویڈیو تھمب نیل">
+          </div>
+          <div class="video-caption">🌱 چھوٹی نرسری</div>
+        </div>
+        <!-- Card 4 -->
+        <div class="video-card" data-video-id="E3Fd9i3Uy4Q" data-caption="🌳 قبرستان منصوبہ : پودے لگاتے ہوئے">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/E3Fd9i3Uy4Q/hqdefault.jpg" alt="ویڈیو تھمب نیل">
+          </div>
+          <div class="video-caption">🌳 قبرستان منصوبہ</div>
+        </div>
+        <!-- Card 5 -->
+        <div class="video-card" data-video-id="k2nLpS2N_4w" data-caption="🙌 نوجوان رضاکار محنت کرتے ہوئے">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/k2nLpS2N_4w/hqdefault.jpg" alt="ویڈیو تھمب نیل">
+          </div>
+          <div class="video-caption">🙌 رضاکار</div>
+        </div>
+        <!-- Card 6 -->
+        <div class="video-card" data-video-id="2Vv-BfVoq4g" data-caption="🌸 گلاب کی قلمیں تیار">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/2Vv-BfVoq4g/hqdefault.jpg" alt="ویڈیو تھمب نیل">
+          </div>
+          <div class="video-caption">🌸 گلاب کی قلمیں</div>
+        </div>
+      </div>
+
+      <!-- Single Lightbox for Videos -->
+      <div id="videoLightbox" class="lightbox">
+        <a href="#" class="close-btn" onclick="closeLightbox()"><i class="fas fa-times"></i></a>
+        <div class="lightbox-content" id="videoContainer">
+          <iframe id="youtubeIframe" src="" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="lightbox-caption" id="videoCaption"></div>
+      </div>
+
+      <!-- Info & Back Links -->
+      <div style="text-align:center; margin:40px 0;">
+        <a href="index.html" class="gallery-link" style="background:#2e7d32; color:white; padding:15px 45px; border-radius:80px; text-decoration:none; font-size:1.8rem;"><i class="fas fa-home"></i> مرکزی صفحہ</a>
+        <a href="lightbox-gallery.html" class="gallery-link" style="background:#ffb300; color:#1b5e20; margin-right:20px; padding:15px 45px; border-radius:80px; text-decoration:none; font-size:1.8rem;"><i class="fas fa-images"></i> تصویری گیلری</a>
+      </div>
+
+      <footer>
+        <p>🌳 ملتان شجر دوست کلب — ویڈیو گیلری | یوٹیوب ویڈیوز</p>
+        <p><a href="index.html">مرکزی صفحہ</a> | <a href="lightbox-gallery.html">تصویری گیلری</a> | شجر دوست تحریک 2025</p>
+        <p style="font-size:1.4rem">براہ کرم ویڈیو IDs کو اپنے مواد سے تبدیل کریں۔</p>
+      </footer>
+    </div>
+
+    <!-- JavaScript for Video Lightbox -->
+    <script>
+      const lightbox = document.getElementById('videoLightbox');
+      const iframe = document.getElementById('youtubeIframe');
+      const caption = document.getElementById('videoCaption');
+
+      function openLightbox(videoId, videoCaption) {
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        caption.textContent = videoCaption;
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden'; // prevent background scroll
+      }
+
+      function closeLightbox() {
+        iframe.src = ''; // stop video
+        lightbox.classList.remove('show');
+        document.body.style.overflow = ''; // restore scroll
+      }
+
+      // Attach click event to all video cards
+      document.querySelectorAll('.video-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+          const videoId = this.dataset.videoId;
+          const videoCaption = this.dataset.caption || this.querySelector('.video-caption').innerText;
+          openLightbox(videoId, videoCaption);
+        });
+      });
+
+      // Close lightbox when clicking outside the content? (optional, close button only is fine)
+      // For better UX, you can also close on background click:
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+    </script>
+    <!-- Decorative Wave -->
+    <div style="height:25px; background:repeating-linear-gradient(45deg, #2e7d32, #a5d6a7 20px);"></div>
+  </body>
+</html>
